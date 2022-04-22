@@ -1,0 +1,27 @@
+.profile__info {
+  display: grid;
+  grid-template-areas:
+  "profile__title profile__edit-button"
+  "profile__subtitle .";
+  grid-template-columns: fit-content(294px) 1fr;
+  row-gap: 15px;
+  column-gap: 18px;
+}
+
+@media all and (max-width: 992px) {
+  .profile__info {
+    margin: 26px auto 0;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .profile__info {
+    margin: 26px auto 0;
+    row-gap: 5px;
+    column-gap: 10px;
+    grid-template-areas:
+    ". profile__title profile__edit-button"
+    ". profile__subtitle .";
+    grid-template-columns: 1fr fit-content(189px) 1fr;
+  }
+}

@@ -1,0 +1,23 @@
+.header {
+  max-width: 880px;
+  margin: auto;
+  padding: 45px 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 41px;
+}
+
+@media all and (max-width: 992px) {
+  .header {
+    max-width: 598px;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .header {
+    max-width: 320px;
+    padding: 28px 0 0;
+    gap: 31.6px;
+  }
+}

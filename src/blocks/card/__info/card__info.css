@@ -1,0 +1,8 @@
+.card__info {
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 22px 15px 22px 21px;
+}
