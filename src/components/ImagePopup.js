@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 function ImagePopup({name, link, isOpened, onClose}) {
   return (
