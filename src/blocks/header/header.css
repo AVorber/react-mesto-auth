@@ -1,11 +1,11 @@
 .header {
   max-width: 880px;
   margin: auto;
-  padding: 45px 0 0;
+  padding: 45px 0 41px;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
-  gap: 41px;
+  align-items: center;
+  border-bottom: 2px solid rgba(84, 84, 84, 0.7);
 }
 
 @media all and (max-width: 992px) {

@@ -1,15 +1,18 @@
 import React from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import api from '../utils/api';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
+import Register from './Register';
+import Login from './Login';
 import EditAvatarPopup from './EditAvatarPopup';
 import EditProfilePopup from './EditProfilePopup';
 import AddPlacePopup from './AddPlacePopup';
 import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
+import ProtectedRoute from './ProtectedRoute';
 
 function App() {
 
@@ -103,10 +106,13 @@ function App() {
   return (
     <div className="page">
       <CurrentUserContext.Provider value={currentUser}>
-        <Header />
-        <Switch>
-          <Route path='/'>
-            <Main
+        <BrowserRouter>
+          <Header loggedIn={loggedIn} />
+          <Switch>
+            <ProtectedRoute
+              exact path='/'
+              component={Main}
+              loggedIn={loggedIn}
               cards={cards}
               onEditProfile={handleEditProfileClick}
               onAddPlace={handleAddPlaceClick}
@@ -114,19 +120,18 @@ function App() {
               onCardClick={handleCardClick}
               onCardLike={handleCardLike}
               onCardDelete={handleCardDelete}
-            />
-          </Route>
-          <Route path='/sign-up'>
-
-          </Route>
-          <Route path='/sign-in'>
-
-          </Route>
-          <Route exact path='/'>
-            {loggedIn ? <Redirect to='/' /> : <Redirect to='/sign-in' />}
-          </Route>
-        </Switch>
+            >
+            </ProtectedRoute>
+            <Route path='/sign-up'>
+              <Register />
+            </Route>
+            <Route path='/sign-in'>
+              <Login />
+            </Route>
+          </Switch>
+        </BrowserRouter>
         <Footer />
+
         <EditProfilePopup
           isOpen={isEditProfilePopupOpen}
           onClose={closeAllPopups}
