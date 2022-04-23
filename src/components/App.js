@@ -7,6 +7,7 @@ import Main from './Main';
 import Footer from './Footer';
 import Register from './Register';
 import Login from './Login';
+import InfoTooltip from './InfoTooltip';
 import EditAvatarPopup from './EditAvatarPopup';
 import EditProfilePopup from './EditProfilePopup';
 import AddPlacePopup from './AddPlacePopup';
@@ -25,13 +26,16 @@ function App() {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
   const [isConfirmPopupOpen, setIsConfirmPopupOpen] = React.useState(false);
   const [selectedCard, setSelectedCard] = React.useState(emptyCard);
+  const [authStatus, setAuthStatus] = React.useState(false);
+  const [isInfoTooltipOpen, setIsInfoTooltipOpen] = React.useState(false);
 
   function closeAllPopups() {
     setIsEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
     setIsEditAvatarPopupOpen(false);
     setIsConfirmPopupOpen(false);
-    setSelectedCard(emptyCard)
+    setSelectedCard(emptyCard);
+    setIsInfoTooltipOpen(false);
   }
 
   React.useEffect(() => {
@@ -149,6 +153,11 @@ function App() {
         />
         <ImagePopup
           {...selectedCard}
+          onClose={closeAllPopups}
+        />
+        <InfoTooltip
+          authStatus={authStatus}
+          isOpen={isInfoTooltipOpen}
           onClose={closeAllPopups}
         />
         <PopupWithForm
