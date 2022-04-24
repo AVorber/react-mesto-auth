@@ -21,7 +21,6 @@ class Auth {
         })
       })
         .then(response => this._validateResponse(response))
-        .catch(err => console.log(err))
   }
 
   signup(email, password) {
@@ -35,7 +34,6 @@ class Auth {
         })
       })
         .then(response => this._validateResponse(response))
-        .catch(err => console.log(err))
   }
 
   validateToken(token) {
@@ -48,7 +46,6 @@ class Auth {
         },
       })
         .then(response => this._validateResponse(response))
-        .catch(err => console.log(err))
   }
 }
 

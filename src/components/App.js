@@ -216,14 +216,6 @@ function App() {
           isOpen={isInfoTooltipOpen}
           onClose={closeAllPopups}
         />
-        <PopupWithForm
-          title='Вы уверены?'
-          popupName='confirm'
-          formName='deleteCard'
-          buttonTitle='Да'
-          isOpen={isConfirmPopupOpen}
-          onClose={closeAllPopups}
-        />
       </CurrentUserContext.Provider>
     </div>
   );
