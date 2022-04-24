@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../images/header-logo.svg';
 
-function Header({ loggedIn }) {
+function Header({ loggedIn, email, onSignOut }) {
   const location = useLocation();
   let currentPath = {};
   if (location.pathname === '/sign-in') {
@@ -19,12 +19,15 @@ function Header({ loggedIn }) {
       </Link>
       { loggedIn
         ? (
-          <Link to="/" className="header__logo-link">
-            Выйти
-          </Link>
+          <div className="header__menu">
+            <span className="header__email">{email}</span>
+            <Link to="/" className="header__link header__link_type_signout" onClick={onSignOut}>
+              Выйти
+            </Link>
+          </div>
         )
         : (
-          <Link to={currentPath.path} className="header__auth-link">
+          <Link to={currentPath.path} className="header__link">
             {currentPath.name}
           </Link>
         )

@@ -1,4 +1,4 @@
-.header__auth-link {
+.header__link {
   text-align: center;
   line-height: 22px;
   font-size: 18px;
@@ -10,6 +10,6 @@
   transition: opacity 0.3s ease-in;
 }
 
-.header__auth-link:hover {
+.header__link:hover {
   opacity: 0.8;
 }

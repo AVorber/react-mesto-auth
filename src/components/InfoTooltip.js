@@ -1,16 +1,17 @@
+import React from 'react';
 import success from '../images/success.svg';
 import fail from '../images/fail.svg';
 
 function InfoTooltip({authStatus, isOpen, onClose}) {
   return (
     <div className={isOpen ? `popup popup_opened` : `popup`}>
-      <div className="popup__container">
+      <div className="popup__container popup__container_type_infotooltip">
         <img
           src={authStatus ? success : fail}
           alt={authStatus ? 'Успешная регистрация' : 'Неудачная регистрация'}
-          className="popup__image"
+          className="register__status-image"
         />
-        <p>{
+        <p className="register__status-text">{
           authStatus
             ? 'Вы успешно зарегистрировались!'
             : 'Что-то пошло не так! Попробуйте ещё раз.'
